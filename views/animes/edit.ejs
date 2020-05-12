@@ -1,0 +1,142 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center;">Edit <%= anime.name %></h1>
+		<div style="width: 30%; margin: 30px auto;">
+			<form action="/animes/<%= anime._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+				<div class="form-group">
+					<label>Name</label>
+					<input class="form-control" type="text" name="name" value="<%=anime.name%>">
+				</div>
+				
+				<div class="form-group">
+					<label>Current Image</label>
+					<p>
+						<img width="150" src="<%= anime.img %>">
+					</p>
+					<input class="form-control" type="text" name="image" disabled value="<%= anime.img %>">
+				</div>
+				
+				<div class="form-group">
+					<label>Upload New Image</label>
+					<input type="file" id="image" name="image" accept="image/*">
+				</div>
+				
+				<div class="form-group">
+					<label>Rating</label>
+					<input class="form-control" type="number" name="rating" min="0.0" max="10.0" value="<%=anime.rating%>" step="0.5">
+				</div>
+				
+				<div class="form-group">
+					<label>Description</label>
+					<textarea class="form-control" name="description"><%=anime.description%></textarea>
+				</div>
+				
+				<hr>
+				<h4 class="sub-info">Anime Television Series</h4>
+				<br>
+				<div class="form-group">
+					<label>Directed By</label>
+					<input class="form-control" type="text" name="tvSeries[directedBy]" value="<%=anime.tvSeries.directedBy%>">
+				</div>
+				<div class="form-group">
+					<label>Produced By</label>
+					<input class="form-control" type="text" name="tvSeries[producedBy]" value="<%=anime.tvSeries.producedBy%>">
+				</div>
+				<div class="form-group">
+					<label>Written By</label>
+					<input class="form-control" type="text" name="tvSeries[writtenBy]" value="<%=anime.tvSeries.writtenBy%>">
+				</div>
+				<div class="form-group">
+					<label>Music By</label>
+					<input class="form-control" type="text" name="tvSeries[musicBy]" value="<%=anime.tvSeries.musicBy%>">
+				</div>
+				<div class="form-group">
+					<label>Studio</label>
+					<input class="form-control" type="text" name="tvSeries[studio]" value="<%=anime.tvSeries.studio%>">
+				</div>
+				<div class="form-group">
+					<label>Original Run</label>
+					<input class="form-control" type="date" name="tvSeries[originalRun]" value="<%=anime.tvSeries.originalRun%>">
+				</div>
+				<div class="form-group">
+					<label>Episodes</label>
+					<input class="form-control" type="number" name="tvSeries[episodes]" min="0" step="1" value="<%=anime.tvSeries.episodes%>">
+				</div>
+				
+				<hr>
+				<h4 class="sub-info">Manga</h4>
+				<br>
+				<div class="form-group">
+					<label>Written By</label>
+					<input class="form-control" type="text" name="manga[writtenBy]" value="<%=anime.manga.writtenBy%>">
+				</div>
+				<div class="form-group">
+					<label>illustrated By</label>
+					<input class="form-control" type="text" name="manga[illustratedBy]" value="<%=anime.manga.illustratedBy%>">
+				</div>
+				<div class="form-group">
+					<label>Published By</label>
+					<input class="form-control" type="text" name="manga[publishedBy]" value="<%=anime.manga.publishedBy%>">
+				</div>
+				<div class="form-group">
+					<label>Demographic</label>
+					<input class="form-control" type="text" name="manga[demographic]" value="<%=anime.manga.demographic%>">
+				</div>
+				<div class="form-group">
+					<label>Magazine</label>
+					<input class="form-control" type="text" name="manga[magazine]" value="<%=anime.manga.magazine%>">
+				</div>
+				<div class="form-group">
+					<label>Original Run</label>
+					<input class="form-control" type="date" name="manga[originalRun]" value="<%=anime.manga.originalRun%>">
+				</div>
+				<div class="form-group">
+					<label>Volumes</label>
+					<input class="form-control" type="number" name="manga[volumes]" min="0" step="1" value="<%=anime.manga.volumes%>">
+				</div>
+				
+				<hr>
+				<h4 class="sub-info">Light Novel</h4>
+				<br>
+				<div class="form-group">
+					<label>Written By</label>
+					<input class="form-control" type="text" name="lightNovel[writtenBy]" value="<%=anime.lightNovel.writtenBy%>">
+				</div>
+				<div class="form-group">
+					<label>Illustrated By</label>
+					<input class="form-control" type="text" name="lightNovel[illustratedBy]" value="<%=anime.lightNovel.illustratedBy%>">
+				</div>
+				<div class="form-group">
+					<label>Published By</label>
+					<input class="form-control" type="text" name="lightNovel[publishedBy]" value="<%=anime.lightNovel.publishedBy%>">
+				</div>
+				<div class="form-group">
+					<label>Demographic</label>
+					<input class="form-control" type="text" name="lightNovel[demographic]" value="<%=anime.lightNovel.demographic%>">
+				</div>
+				<div class="form-group">
+					<label>Imprint</label>
+					<input class="form-control" type="text" name="lightNovel[imprint]" value="<%=anime.lightNovel.imprint%>">
+				</div>
+				<div class="form-group">
+					<label>Original Run</label>
+					<input class="form-control" type="date" name="lightNovel[originalRun]" value="<%=anime.lightNovel.originalRun%>">
+				</div>
+				<div class="form-group">
+					<label>Volumes</label>
+					<input class="form-control" type="number" name="lightNovel[volumes]" min="0" step="1" value="<%=anime.lightNovel.volumes%>">
+				</div>
+				
+				<div class="form-group">
+					<button class="btn btn-lg btn-default btn-block btn-primary">Update</button>
+				</div>
+
+			</form>
+			<a href="/animes/<%= anime._id %>">Go Back</a>
+		</div>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

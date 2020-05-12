@@ -1,0 +1,42 @@
+<%- include("../partials/header") %>
+
+<div class="container container-fluid">
+	<header class="jumbotron">
+		<div class="container">
+			<h1><i class="fas fa-dragon"></i> Welcome To YelpAnime!</h1>
+			<p>View our anime lovers' recommended series.</p>
+			<p>
+				<a class="btn btn-primary btn-lg" href="/animes/new">Add New Anime</a>
+			</p>
+		</div>
+	</header>
+	
+	<div class="row text-center flex-wrap align-items-cente">
+		<% animes.forEach((anime) => { %>
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="thumbnail">
+					<img class="grid-img" src="<%= anime.img %>">
+					<div class="caption">
+						<% if (anime.name && anime.name.length > 20) { %>
+							<h4><%= anime.name.substring(0,20) %>...</h4>
+						<% } else { %>
+							<h4><%= anime.name%></h4>
+						<% } %>
+					</div>
+					<p>
+						<a href="/animes/<%= anime._id %>" class="btn btn-xs btn-primary">More Info</a>
+					</p>
+				</div>
+			</div>
+		<% }) %>
+		
+	</div>
+	
+	
+</div>
+
+
+
+
+
+<%- include("../partials/footer") %>

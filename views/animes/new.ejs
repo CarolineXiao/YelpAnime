@@ -1,0 +1,135 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center;">Create a New Anime</h1>
+		<div style="width: 30%; margin: 30px auto;">
+			<form action="/animes" method="POST" enctype="multipart/form-data">
+				<div class="form-group">
+					<label>Name</label>
+					<input class="form-control" type="text" name="anime[name]" placeholder="Enter anime name" required>
+				</div>
+				
+				<div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+				
+				<div class="form-group">
+					<label>Rating</label>
+					<input class="form-control" type="number" name="anime[rating]" min="0.0" max="10.0" value="10.0" step="0.5" required>
+				</div>
+				
+				<div class="form-group">
+					<label>Description</label>
+					<textarea class="form-control" name="anime[description]" placeholder="Enter some description" required></textarea>
+				</div>
+				
+				<hr>
+				<h4 class="sub-info">Anime Television Series</h4>
+				<br>
+				<div class="form-group">
+					<label>Directed By</label>
+					<input class="form-control" type="text" name="anime[tvSeries][directedBy]">
+				</div>
+				<div class="form-group">
+					<label>Produced By</label>
+					<input class="form-control" type="text" name="anime[tvSeries][producedBy]">
+				</div>
+				<div class="form-group">
+					<label>Written By</label>
+					<input class="form-control" type="text" name="anime[tvSeries][writtenBy]">
+				</div>
+				<div class="form-group">
+					<label>Music By</label>
+					<input class="form-control" type="text" name="anime[tvSeries][musicBy]">
+				</div>
+				<div class="form-group">
+					<label>Studio</label>
+					<input class="form-control" type="text" name="anime[tvSeries][studio]">
+				</div>
+				<div class="form-group">
+					<label>Original Run</label>
+					<input class="form-control" type="date" name="anime[tvSeries][originalRun]">
+				</div>
+				<div class="form-group">
+					<label>Episodes</label>
+					<input class="form-control" type="number" name="anime[tvSeries][episodes]" min="0" step="1">
+				</div>
+				
+				<hr>
+				<h4 class="sub-info">Manga</h4>
+				<br>
+				<div class="form-group">
+					<label>Written By</label>
+					<input class="form-control" type="text" name="anime[manga][writtenBy]">
+				</div>
+				<div class="form-group">
+					<label>illustrated By</label>
+					<input class="form-control" type="text" name="anime[manga][illustratedBy]">
+				</div>
+				<div class="form-group">
+					<label>Published By</label>
+					<input class="form-control" type="text" name="anime[manga][publishedBy]">
+				</div>
+				<div class="form-group">
+					<label>Demographic</label>
+					<input class="form-control" type="text" name="anime[manga][demographic]">
+				</div>
+				<div class="form-group">
+					<label>Magazine</label>
+					<input class="form-control" type="text" name="anime[manga][magazine]">
+				</div>
+				<div class="form-group">
+					<label>Original Run</label>
+					<input class="form-control" type="date" name="anime[manga][originalRun]">
+				</div>
+				<div class="form-group">
+					<label>Volumes</label>
+					<input class="form-control" type="number" name="anime[manga][volumes]" min="0" step="1">
+				</div>
+				
+				<hr>
+				<h4 class="sub-info">Light Novel</h4>
+				<br>
+				<div class="form-group">
+					<label>Written By</label>
+					<input class="form-control" type="text" name="anime[lightNovel][writtenBy]">
+				</div>
+				<div class="form-group">
+					<label>Illustrated By</label>
+					<input class="form-control" type="text" name="anime[lightNovel][illustratedBy]">
+				</div>
+				<div class="form-group">
+					<label>Published By</label>
+					<input class="form-control" type="text" name="anime[lightNovel][publishedBy]">
+				</div>
+				<div class="form-group">
+					<label>Demographic</label>
+					<input class="form-control" type="text" name="anime[lightNovel][demographic]">
+				</div>
+				<div class="form-group">
+					<label>Imprint</label>
+					<input class="form-control" type="text" name="anime[lightNovel][imprint]">
+				</div>
+				<div class="form-group">
+					<label>Original Run</label>
+					<input class="form-control" type="date" name="anime[lightNovel][originalRun]">
+				</div>
+				<div class="form-group">
+					<label>Volumes</label>
+					<input class="form-control" type="number" name="anime[lightNovel][volumes]" min="0" step="1">
+				</div>
+				
+				
+				<div class="form-group">
+					<button class="btn btn-lg btn-default btn-block btn-primary">Submit</button>
+				</div>
+
+			</form>
+			<a href="/animes">Go Back</a>
+		</div>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

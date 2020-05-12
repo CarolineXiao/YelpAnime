@@ -1,0 +1,115 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<p class="lead">YelpAnime</p>
+			<div class="list-group">
+				<div class="list-group" id="myList" role="tablist">
+					<a class="list-group-item list-group-item-action active" data-toggle="list" href="#tv" role="tab">Anime Television Series</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#manga" role="tab">Manga</a>
+					<a class="list-group-item list-group-item-action" data-toggle="list" href="#novel" role="tab">Light Novel</a>
+			    </div>
+
+				<div class="tab-content">
+				  <div class="tab-pane" id="novel" role="tabpanel">
+					  <label>Written By:</label>
+					  <p><%= anime.lightNovel.writtenBy %></p>
+					  <label>Illustrated By:</label>
+					  <p><%= anime.lightNovel.illustratedBy %></p>
+					  <label>Published By:</label>
+					  <p><%= anime.lightNovel.publishedBy %></p>
+					  <label>Demographic:</label>
+					  <p><%= anime.lightNovel.demographic %></p>
+					  <label>Imprint:</label>
+					  <p><%= anime.lightNovel.imprint %></p>
+					  <label>Original Run:</label>
+					  <p><%= anime.lightNovel.originalRun %></p>
+					  <label>Volumes:</label>
+					  <p><%= anime.lightNovel.volumes %></p>
+				  </div>
+					
+				  <div class="tab-pane" id="manga" role="tabpanel">
+					  <label>Written By:</label>
+					  <p><%= anime.manga.writtenBy %></p>
+					  <label>Illustrated By:</label>
+					  <p><%= anime.manga.illustratedBy %></p>
+					  <label>Published By:</label>
+					  <p><%= anime.manga.publishedBy %></p>
+					  <label>Demographic:</label>
+					  <p><%= anime.manga.demographic %></p>
+					  <label>Magazine:</label>
+					  <p><%= anime.manga.magazine %></p>
+					  <label>Original Run:</label>
+					  <p><%= anime.manga.originalRun %></p>
+					  <label>Volumes:</label>
+					  <p><%= anime.manga.volumes %></p>
+				  </div>
+					
+				  <div class="tab-pane active" id="tv" role="tabpanel">
+					  <label>Directed By:</label>
+					  <p><%= anime.tvSeries.directedBy %></p>
+					  <label>Produced By:</label>
+					  <p><%= anime.tvSeries.producedBy %></p>
+					  <label>Written By:</label>
+					  <p><%= anime.tvSeries.writtenBy %></p>
+					  <label>Music By:</label>
+					  <p><%= anime.tvSeries.musicBy %></p>
+					  <label>Studio:</label>
+					  <p><%= anime.tvSeries.studio %></p>
+					  <label>Original Run:</label>
+					  <p><%= anime.tvSeries.originalRun %></p>
+					  <label>Episodes:</label>
+					  <p><%= anime.tvSeries.episodes %></p>
+				  </div>
+				</div>
+			</div>	
+		</div>
+		
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%=anime.img%>">
+				<div class="caption-full">
+					<h4 class="pull-right"><%= anime.rating %>/10.0</h4>
+					<h4><a><%=anime.name%></a></h4>
+					<p><%= anime.description %></p>
+					<p>
+  						<em>Submitted by: <%= anime.author.username %>, <%= moment(anime.createdAt).fromNow() %></em>
+					</p>
+					<% if (currentUser && (anime.author.id.equals(currentUser._id) || currentUser.username === "admin")) {%>
+						<a class="btn btn-xs btn-warning" href="/animes/<%= anime._id %>/edit">Edit</a>
+						<form class="delete-form" action="/animes/<%= anime._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-xs btn-danger">Delete</button>
+						</form>
+					<% } %>
+				</div>
+			</div>
+			<div class="well">
+				<div class="text-right">
+					<a class="btn btn-primary" href="/animes/<%= anime._id %>/comments/new">Add New Comment</a>
+				</div>
+				<hr>
+				<% anime.comments.forEach((comment) => { %>
+					<div class="row">
+						<div class="col-md-12">
+							<strong><%= comment.author.username %></strong>
+							<span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+							<p><%= comment.text %></p>
+							<% if (currentUser && (comment.author.id.equals(currentUser._id) || currentUser.username === "admin")) {%>
+								<a class="btn btn-xs btn-warning" href="/animes/<%= anime._id %>/comments/<%= comment._id %>/edit">Edit</a>
+								<form class="delete-form" action="/animes/<%= anime._id %>/comments/<%= comment.id %>?_method=DELETE" method="POST">
+									<button class="btn btn-xs btn-danger">Delete</button>
+								</form>
+							<hr>
+							<% } %>
+						</div>
+					</div>
+				<% }) %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<%- include("../partials/footer") %>
