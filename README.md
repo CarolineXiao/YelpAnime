@@ -55,4 +55,17 @@ The app is built with Node.js, Express and MongoDB.
  
  ### Deployment
  * Heroku
+ 
+## Features
+* Responsive web design
+* RESTful routes: show, create, edit, delete posts and comments
+* Authentication
+  + User signup with username, email and password
+  + User login with username and password
+  + User password reset with email
+  + Admin user
+* Authorization
+  + User must login to create posts and comments
+  + User can only edit or delete posts/comments that they created
+  + Admin user can manage all posts and comments
   
