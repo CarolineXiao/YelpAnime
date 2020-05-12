@@ -29,7 +29,8 @@ require('dotenv').config();
 mondodb_url = "mongodb+srv://caroline:" + process.env.MONGO_USER_PW + "@cluster0-znsea.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(mondodb_url, {
 	useNewUrlParser: true,
-	useCreateIndex: true
+	useCreateIndex: true,
+	useUnifiedTopology: true
 }).then(() => {
 	console.log("Connected to DB!");
 }).catch(err => {
