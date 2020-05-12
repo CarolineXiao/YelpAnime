@@ -20,11 +20,22 @@ var commentRoutes 	 = require("./routes/comments"),
 
 
 //seedDB(); // seed the database
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost:27017/yelp_camp");
+// mongoose.set('useNewUrlParser', true);
+// mongoose.set('useFindAndModify', false);
+// mongoose.set('useCreateIndex', true);
+// mongoose.set('useUnifiedTopology', true);
+// mongoose.connect("mongodb://localhost:27017/yelp_camp");
+require('dotenv').config();
+mondodb_url = "mongodb+srv://caroline:" + process.env.MONGO_USER_PW + "@cluster0-znsea.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(mondodb_url, {
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log("Connected to DB!");
+}).catch(err => {
+	console.log("Error: ", err.message);
+});
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({entended: true}));
 app.use(express.static(__dirname + "/public"));
