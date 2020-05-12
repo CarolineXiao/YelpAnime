@@ -1,13 +1,13 @@
 # YelpAnime
 Production: https://yelp-anime.herokuapp.com/
 
-## Overview:
+## Overview
 YelAnime is a website where anime lovers share their favorite anime series. Users can view others' posts and comment on them. They can also create, update and delete their own posts.
 
 The app is built with Node.js, Express and MongoDB. 
 
-## Technology used:
-### Front-end:
+## Technology used
+### Front-end
 <ul>
   <li>HTML</li>
   <li>CSS</li>
@@ -17,7 +17,7 @@ The app is built with Node.js, Express and MongoDB.
   <li>Google Fonts</li>
 </ul>
 
-### Back-end:
+### Back-end
 <ul>
   <li>Node.js</li>
   <li>Express</li>
@@ -52,6 +52,7 @@ The app is built with Node.js, Express and MongoDB.
     </ul>
   </li>
  </ul>
- ### Deployment:
+ 
+ ### Deployment
  * Heroku
   
