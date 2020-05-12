@@ -68,6 +68,10 @@ app.use("/", indexRoutes);
 app.use("/animes/:id/comments", commentRoutes);
 app.use("/animes", animeRoutes);
 
+app.get("*", (req, res) => {
+	res.render("landing");
+});
+
 
 app.listen(3000, () => {
 	console.log("The YelpAnime Server has started!!")
